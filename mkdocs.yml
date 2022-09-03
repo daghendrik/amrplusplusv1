@@ -1,3 +1,22 @@
 site_name: My Docs
 theme:
   name: material
+
+markdown_extensions:
+  - tables
+  - footnotes
+  - admonition
+  - attr_list
+  - md_in_html
+  - abbr
+  - attr_list  
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
