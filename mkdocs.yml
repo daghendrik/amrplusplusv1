@@ -1,7 +1,14 @@
-site_name: My Docs
+# Project information
+site_name: Welcome to AmrPlusPlus’s documentation!
+
+# Copyright
+copyright: '&copy; Copyright 2019, Microbial Ecology Group.'
+
+# Configuration 
 theme:
   name: material
 
+# Extensions
 markdown_extensions:
   - tables
   - footnotes
@@ -20,3 +27,27 @@ markdown_extensions:
   - pymdownx.snippets:
       auto_append:
         - includes/abbreviations.md
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+# Page Tree
+nav:
+  - MEGARes: https://megares.meglab.org/
+  - Microbial Ecology Group: https://meg.colostate.edu/
+  - Introduction: index.md
+  - Example Analysis and Output: analysisoutput.md
+  - Initial Setup:
+    - Installation to Run AMR++: setup/installation.md
+    - Import AMR++ Workflow: setup/import.md
+  - Running AMR++:
+    - Upload Data into AMR++: running/upload.md
+    - Run AMR++ Workflow: running/runworkflow.md
+  - AMR++ Documentation:
+    - Pipeline Description: documentation/pipeline.md
+    - User Manual (Options and Settings): documentation/usermanual.md
+    - Docker Commands: documentation/docker.md
+  - References: references.md
+  - Citing AMR++: citing.md
+  - Contact: contact.md
+
