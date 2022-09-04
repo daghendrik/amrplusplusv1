@@ -10,11 +10,12 @@ theme:
   language: en
   features:
     - navigation.instant
+    - header.autohide
     # Comment out the lines below to use default layout
-    - navigation.tabs
-    - navigation.sections
-    - navigation.expand
-    - toc.integrate
+    # - navigation.tabs
+    # - navigation.sections
+    # - navigation.expand
+    # - toc.integrate
   palette: 
     # Palette toggle for light mode
     - scheme: default
