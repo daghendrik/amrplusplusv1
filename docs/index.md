@@ -36,7 +36,7 @@ As a result of AmrPlusPlus, you will obtain count files for each sample that can
 For an example of a study where we have performed this using metagenomic sequencing data, you can read the open access [manuscript](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4798965/) entitled “Resistome diversity in cattle and the environment decreases during beef production”.
 
 <figure markdown>
-  ![Image title](./images/Figure2.png){ width="450" }
+  ![](./images/Figure2.png){ width="450" }
   <figcaption></figcaption>
 </figure>
 
