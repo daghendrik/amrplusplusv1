@@ -7,8 +7,9 @@ copyright: '&copy; Copyright 2019, Microbial Ecology Group.'
 # Configuration 
 theme:
   name: material
+  custom_dir: overrides
   language: en
-  features:
+  features:    
     - navigation.instant
     - header.autohide
     # Comment out the lines below to use default layout
