@@ -1,0 +1,872 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
+    
+    
+      
+        <title>Pipeline Description - AmrPlusPlus 1.1 Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pipeline-description" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  This documentation is deprecated. See the <b><a href="https://megares.meglab.org/">MEGARes homepage</a></b> for the latest docs for AMR++.
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AmrPlusPlus 1.1 Docs" class="md-header__button md-logo" aria-label="AmrPlusPlus 1.1 Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AmrPlusPlus 1.1 Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pipeline Description
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AmrPlusPlus 1.1 Docs" class="md-nav__button md-logo" aria-label="AmrPlusPlus 1.1 Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    AmrPlusPlus 1.1 Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://megares.meglab.org/" class="md-nav__link">
+        🔗 MEGARes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://meg.colostate.edu/" class="md-nav__link">
+        🔗 Microbial Ecology Group
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysisoutput/" class="md-nav__link">
+        Example Analysis and Output
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Initial Setup
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Initial Setup" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Initial Setup
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/installation/" class="md-nav__link">
+        Installation to Run AMR++
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/import/" class="md-nav__link">
+        Import AMR++ Workflow
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Running AMR++
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Running AMR++" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Running AMR++
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../running/upload/" class="md-nav__link">
+        Upload Data into AMR++
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../running/runworkflow/" class="md-nav__link">
+        Run AMR++ Workflow
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          AMR++ Documentation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="AMR++ Documentation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          AMR++ Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Pipeline Description
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Pipeline Description
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#input" class="md-nav__link">
+    Input
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-control" class="md-nav__link">
+    Quality Control
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removal-of-host-dna" class="md-nav__link">
+    Removal of Host DNA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alignment-to-target-database" class="md-nav__link">
+    Alignment to Target Database
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resistome-analysis" class="md-nav__link">
+    Resistome Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rarefaction-analysis" class="md-nav__link">
+    Rarefaction Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-pair-haplotyping" class="md-nav__link">
+    Read-pair Haplotyping
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usermanual/" class="md-nav__link">
+        User Manual (Options and Settings)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        Docker Commands
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        References
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../citing/" class="md-nav__link">
+        Citing AMR++
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        Contact
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#input" class="md-nav__link">
+    Input
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-control" class="md-nav__link">
+    Quality Control
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removal-of-host-dna" class="md-nav__link">
+    Removal of Host DNA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alignment-to-target-database" class="md-nav__link">
+    Alignment to Target Database
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resistome-analysis" class="md-nav__link">
+    Resistome Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rarefaction-analysis" class="md-nav__link">
+    Rarefaction Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-pair-haplotyping" class="md-nav__link">
+    Read-pair Haplotyping
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="pipeline-description">Pipeline Description</h1>
+<p>Below we explain the use of each component in the AmrPlusPlus pipeline.</p>
+<details class="example">
+<summary>Step 1: Input</summary>
+<h3 id="input">Input</h3>
+<p>The raw data input to AmrPlusPlus will be a single pair of fastq files, one forward and one reverse. Additionally, you will need a database file in FASTA format (for the targets you wish to find in your data) such as the <a href="http://megares.meglab.org/">MEGARes</a> database file, and a FASTA file for a host organism.</p>
+</details>
+<details class="example">
+<summary>Step 2: Quality Control</summary>
+<h3 id="quality-control">Quality Control</h3>
+<p>Depending on the sequencing platform, your data will likely contain some kind of error or bias.</p>
+<p>For Illumina sequencers, the quality of the sequence (the confidence that a given nucleotide is correct) drops off toward the end of the read. For Proton Torrent machines, there will be tandem repeats of nucleotides that aren't correct. Additionally, random error will be dispersed throughout.</p>
+<p>Quality control programs utilize statistics and other mathematical conventions to remove these regions of error from your data.</p>
+<p>While it is not necessarily required, it is highly recommended to run a quality control program on your raw data, as it is fairly efficient and will give you information about the quality of the sequencing performed on your samples. Ideally, less than 10% of the data will be of poor quality.</p>
+<p>For AmrPlusPlus, we use Trimmomatic<sup>4</sup> to perform quality control.</p>
+</details>
+<details class="example">
+<summary>Step 3: Removal of Host DNA</summary>
+<h3 id="removal-of-host-dna">Removal of Host DNA</h3>
+<p>If your samples are collected from an animal source, there will be DNA that is off-target in your sample. We define off-target as being a sequence that is not contained within the database of interest, so for our typical use case, this would be any DNA that is not related to antimicrobial resistance. While it is not required to perform this step, it is recommended, as it can reduce the rate of false positive classifications.</p>
+<p>Reviewers have also commented on the quality of the pipeline when this step has been left out in our previous manuscripts, so we now perform host removal on all samples. We use the <abbr title="BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome.">Burrows Wheeler Aligner</abbr><sup>5</sup> and a FASTA file of known host genetic sequences to match reads from the sample to the host genome. We then utilize <abbr title="SAM (Sequence Alignment/Map) format is a generic format for storing large nucleotide sequence alignments.">Samtools</abbr><sup>6</sup> to filter out the reads that align to the host genome.</p>
+</details>
+<details class="example">
+<summary>Step 4: Alignment to Target Database</summary>
+<h3 id="alignment-to-target-database">Alignment to Target Database</h3>
+<p>This step is the same as the prior step, except we use the database of interest for alignment.</p>
+<p>This will match the raw short read sequences to the target database using BWA and provide a SAM file as output. SAM stands for Sequence Alignment/Map and provides information for how the short fragments map to the database sequences; the SAM file specification is fairly detailed, so these files are large and often contain information that isn't useful in many contexts.</p>
+<p>We have written programs to parse this file and obtain the information of interest about the aligned reads.</p>
+</details>
+<details class="example">
+<summary>Step 5: Resistome Analysis</summary>
+<h3 id="resistome-analysis">Resistome Analysis</h3>
+<p>This part of the pipeline takes the SAM file generated in Step 4 and transforms it into the sample resistome. It does this by counting each alignment for each gene found in the SAM file (1 aligned read = 1 count). The output consists of 4 tab-delimited text files, one for each level of the database hierarchy (gene, group, mechanism and class). Within each file, the first column lists the sample that was analyzed (taken from the file name), the second column lists the gene, group, mechanism or class that was identified, and the third column gives the total count of reads that aligned to that gene, group, mechanism or class. For the gene-level output, there is a fourth column that lists the gene fraction. Gene fraction is defined as the proportion of nucleotides in the reference sequence that were aligned to by at least one sequence read. Our program allows you to set a gene fraction threshold at which genes are considered to be positively identified in the sample. This threshold is meant to decrease false positive identification. For example, if you set the gene fraction threshold at 80%, then only genes with at least 80% nucleotide coverage will be included in the output.</p>
+</details>
+<details class="example">
+<summary>Step 6: Rarefaction Analysis</summary>
+<h3 id="rarefaction-analysis">Rarefaction Analysis</h3>
+<p>If a rarefaction analysis is desired, our program called RarefactionAnalyzer can perform it at this step. Rarefaction can be of interest when you wish to know the fraction of the target population that is captured in your sequence data versus the fraction of the target population that has not been described due to not sequencing deep enough. This is a standard analysis performed for microbiome research and is typically recommended for any kind of metagenomics where counts are of interest.</p>
+<p>Using our program, you are able to specify the increments (i.e., "levels") of your rarefaction (i.e., whether you subsample your sequence data in 5-percent increments, 20-percent increments, etc...), and the number of random subsamples (i.e., "iterations") to perform at each increment. In order to obtain a smooth rarefaction curve, we suggest performing at least 5 iterations at each level so that each point on the curve is an average of at least 5 random subsamples. In addition to setting the "level" and "iteration" parameters, you are also able to apply a gene fraction threshold to the rarefaction analysis (see Step 5 for more details).</p>
+<p>The output of the Rarefaction Analysis includes 4 rarefaction curves -- one for each level of the annotation hierarchy (gene, group, mechanism and class). For each graph, the x-axis is the rarefaction level (from 0 to 100%), and the y-axis is the number of unique genes, group, mechanisms or classes identified in the rarefied data.</p>
+</details>
+<details class="example">
+<summary>Step 7: Read-pair Haplotyping</summary>
+<h3 id="read-pair-haplotyping">Read-pair Haplotyping</h3>
+<p>Variants are defined as nucleotides that differ from the reference database target. For reads that have aligned to a given reference sequence, we check each nucleotide against the reference target to determine if a variant is present. If multiple variants are present on the same read pair, we can make the assumption that they come from the same fragment of DNA (the same organism), so we record these variants that fall on the same read pair as haplotypes. The output from the variant calling step is a count file similar to the Resistome Analysis step, however the counts are of the haplotypes as determined with respect to the reference target. This information can be used in statistical analysis of counts, as in the previous step, or variants of interest can be manually found in the file if they are of interest.</p>
+<p>Output from this module is a tab delimited text file with three columns:</p>
+<ul>
+<li><strong>Gene:</strong> Name of the gene that contains the corresponding haplotype</li>
+<li><strong>Haplotype Pattern:</strong> Location(s) of each SNP, followed by reference nucleotide -&gt; variant nucleotide. SNP locations and variants are separated by full colons.</li>
+<li><strong>Occurrence:</strong> The number of reads (or read pairs) with the given haplotype pattern.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Output</p>
+<table>
+<thead>
+<tr>
+<th>Gene</th>
+<th>Haplotype Pattern</th>
+<th>Occurrence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gene1</td>
+<td>494T-&gt;A:987C-&gt;A:1001A-&gt;T</td>
+<td>2</td>
+</tr>
+<tr>
+<td>gene2</td>
+<td>56T-&gt;A:80A-&gt;C:93A-&gt;C:109T-&gt;A</td>
+<td>8</td>
+</tr>
+<tr>
+<td>gene3</td>
+<td>285T-&gt;A:1022:C-&gt;G</td>
+<td>3</td>
+</tr>
+<tr>
+<td>gene4</td>
+<td>585T-&gt;A:1051:C-&gt;A</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</details>
+<details class="example">
+<summary>Output</summary>
+<p>As output from running AmrPlusPlus, you will receive two files for each sample: a file with a count of how many reads aligned to each target from the reference database, and a file with a count of haplotypes that were detected within aligned reads.</p>
+<p>Our recommendation is to then combine files of the same type into two “master” files that are count matrices. Depending on the subsequent application you will be using for statistical analysis, you may want to arrange the matrices with gene targets as rows and the samples as columns, where the counts of the targets are the entries in the matrix.</p>
+<p>Alternatively, you could transpose that matrix and have the gene targets be the columns and the samples be the rows.</p>
+</details>
+<details class="example">
+<summary>Next Steps</summary>
+<p>With the two count matrices, you can then perform statistical analyses using publicly available tools. We make use of the R programming language and the package <a href="https://www.bioconductor.org/packages/devel/bioc/vignettes/metagenomeSeq/inst/doc/metagenomeSeq.pdf">metagenomeseq</a> to perform a count matrix analysis.</p>
+<p>The questions that are typically asked of count data are:</p>
+<p><strong>How similar or different are the samples, both by pairwise comparison and by study design?</strong></p>
+<p><strong>If there is a time series in the experimental design, is there a significant trend over time related to the count data?</strong></p>
+<p><strong>Are the statistically significant differences related to any biologically meaningful group of targets?</strong></p>
+<p>The metagenomeseq package can perform the analyses in (1) and (2), and the user can obtain information about (3) based on the results. Another option, if relative abundance changes are of interest, is to use an RNA-seq count matrix analysis package such as <a href="http://bioconductor.org/packages/release/bioc/html/DESeq.html">DESeq2</a> (also an R package) to gather statistics on the log-fold changes from one sample group to another.</p>
+</details>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../../running/runworkflow/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Run AMR++ Workflow" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Run AMR++ Workflow
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../usermanual/" class="md-footer__link md-footer__link--next" aria-label="Next: User Manual (Options and Settings)" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              User Manual (Options and Settings)
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; Copyright 2019, Microbial Ecology Group.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+    
+  </body>
+</html>
